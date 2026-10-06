@@ -12,6 +12,7 @@ namespace KennethKyleDeLunaProject1.Model
         public CarLot()
         {
             cars = new List<Car>();
+            StockLotWithDefaultInventory();
         }
 
         private void StockLotWithDefaultInventory()
@@ -20,6 +21,23 @@ namespace KennethKyleDeLunaProject1.Model
             cars.Add(new Car("Chevrolet", "Camaro", 19.0m, 65401.23m));
             cars.Add(new Car("Honda", "Accord Sedan EX", 30.2m, 26780m));
             cars.Add(new Car("Lexus", "ES 350", 24.1m, 42101.10m));
+        }
+
+        public List<Car> FindCarsByMake(string make)
+        {
+            if (string.IsNullOrWhiteSpace(make))
+            {
+                throw new ArgumentException("Make cannot be null or empty.", nameof(make));
+            }
+
+            List<Car>? foundCars = cars.Where(car => car.Make.ToLower() == make.ToLower()).ToList();
+
+            return foundCars;
+        }
+
+        public List<Car> FindCarByMakeModel()
+        {
+            return new List<Car>(cars);
         }
     }
 }
