@@ -35,9 +35,21 @@ namespace KennethKyleDeLunaProject1.Model
             return foundCars;
         }
 
-        public List<Car> FindCarByMakeModel()
+        public List<Car> FindCarByMakeModel(string make, string model)
         {
-            return new List<Car>(cars);
+            if (string.IsNullOrWhiteSpace(make))
+            {
+                throw new ArgumentException("Make cannot be null or empty.", nameof(make));
+            }
+
+            if (string.IsNullOrWhiteSpace(model))
+            {
+                throw new ArgumentException("Model cannot be null or empty.", nameof(model));
+            }
+
+            List<Car>? foundCars = cars.Where(car => car.Make.ToLower() == make.ToLower() && car.Model.ToLower() == model.ToLower()).ToList();
+
+            return foundCars;
         }
     }
 }
