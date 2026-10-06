@@ -7,7 +7,10 @@ namespace KennethKyleDeLunaProject1.Model
     internal class CarLot
     {
         private List<Car> cars;
-        public const decimal TaxRate = 0.078m; // 8% tax rate
+        public const decimal TaxRate = 0.078m;
+
+        public int Count => cars.Count;
+        public List<Car> Inventory => new List<Car>(cars);
 
         public CarLot()
         {
