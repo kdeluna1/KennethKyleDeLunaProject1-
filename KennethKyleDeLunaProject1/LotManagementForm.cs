@@ -1,8 +1,8 @@
 namespace KennethKyleDeLunaProject1
 {
-    public partial class Form1 : Form
+    public partial class LotManagementForm : Form
     {
-        public Form1()
+        public LotManagementForm()
         {
             InitializeComponent();
         }

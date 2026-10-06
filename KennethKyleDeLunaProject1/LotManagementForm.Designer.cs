@@ -1,6 +1,6 @@
 ﻿namespace KennethKyleDeLunaProject1
 {
-    partial class Form1
+    partial class LotManagementForm
     {
         /// <summary>
         ///  Required designer variable.
