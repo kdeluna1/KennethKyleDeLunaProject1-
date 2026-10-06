@@ -24,5 +24,29 @@ namespace KennethKyleDeLunaProject1.Model
             MoneyAvailable = moneyAvailable;
             Cars = new List<Car>();
         }
+
+        public bool CanPurchase(decimal totalcost)
+        {
+            return MoneyAvailable >= totalcost;
+        }
+
+        public void PurchaseCar(Car car, decimal totalCost)
+        {
+            if (car == null)
+            {
+                throw new ArgumentNullException(nameof(car), "Car cannot be null.");
+            }
+            if (totalCost < 0)
+            {
+                throw new ArgumentException("Total cost must be a positive value.", nameof(totalCost));
+            }
+
+            if (!CanPurchase(totalCost))
+            {
+                throw new InvalidOperationException("Insufficient funds to purchase the car.");
+            }
+            MoneyAvailable -= totalCost;
+            Cars.Add(car);
+        }
     }
 }
