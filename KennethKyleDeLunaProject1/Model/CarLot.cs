@@ -128,5 +128,25 @@ namespace KennethKyleDeLunaProject1.Model
             Car mostExpensiveCar = cars.Aggregate((car1, car2) => car1.Price > car2.Price ? car1 : car2);
             return mostExpensiveCar;
         }
+
+        public Car? FindBestMpgCar()
+        {
+            if (cars == null || cars.Count == 0)
+            {
+                return null;
+            }
+            Car bestMpgCar = cars.Aggregate((car1, car2) => car1.Mpg > car2.Mpg ? car1 : car2);
+            return bestMpgCar;
+        }
+
+        public Car? FindWorstMPG()
+        {
+            if (cars == null || cars.Count == 0)
+            {
+                return null;
+            }
+            Car worstMpgCar = cars.Aggregate((car1, car2) => car1.Mpg < car2.Mpg ? car1 : car2);
+            return worstMpgCar;
+        }
     }
 }
