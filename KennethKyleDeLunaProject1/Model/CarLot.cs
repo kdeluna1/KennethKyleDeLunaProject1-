@@ -95,5 +95,38 @@ namespace KennethKyleDeLunaProject1.Model
             Car newCar = new Car(make, model, mpg, price);
             cars.Add(newCar);
         }
+
+        public decimal GetTotalCostOfPurchase(Car car)
+        {
+            if (car == null)
+            {
+                throw new ArgumentNullException(nameof(car), "Car cannot be null.");
+            }
+            decimal taxAmount = car.Price * TaxRate;
+            decimal totalCost = car.Price + taxAmount;
+            return totalCost;
+        }
+
+        public Car? FindLeastExpensiveCar()
+        {
+            if (cars == null || cars.Count == 0)
+            {
+                return null;
+            }
+
+            Car leastExpensiveCar = cars.Aggregate((car1, car2) => car1.Price < car2.Price ? car1 : car2);
+            return leastExpensiveCar;
+        }
+
+        public Car? FindMostExpensiveCar()
+        {
+            if (cars == null || cars.Count == 0)
+            {
+                return null;
+            }
+
+            Car mostExpensiveCar = cars.Aggregate((car1, car2) => car1.Price > car2.Price ? car1 : car2);
+            return mostExpensiveCar;
+        }
     }
 }
