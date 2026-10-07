@@ -6,24 +6,24 @@ namespace KennethKyleDeLunaProject1.Model
 {
     internal class CarLot
     {
-        private List<Car> cars;
+        private List<Car> Inventory;
         public const decimal TaxRate = 0.078m;
 
-        public int Count => cars.Count;
-        public List<Car> Inventory => new List<Car>(cars);
+        public int Count => Inventory.Count;
+        public List<Car> LotInventory => new List<Car>(Inventory);
 
         public CarLot()
         {
-            cars = new List<Car>();
+            Inventory = new List<Car>();
             StockLotWithDefaultInventory();
         }
 
         private void StockLotWithDefaultInventory()
         {
-            cars.Add(new Car("Ford", "Focus ST", 28.3m, 26298.98m));
-            cars.Add(new Car("Chevrolet", "Camaro", 19.0m, 65401.23m));
-            cars.Add(new Car("Honda", "Accord Sedan EX", 30.2m, 26780m));
-            cars.Add(new Car("Lexus", "ES 350", 24.1m, 42101.10m));
+            Inventory.Add(new Car("Ford", "Focus ST", 28.3m, 26298.98m));
+            Inventory.Add(new Car("Chevrolet", "Camaro", 19.0m, 65401.23m));
+            Inventory.Add(new Car("Honda", "Accord Sedan EX", 30.2m, 26780m));
+            Inventory.Add(new Car("Lexus", "ES 350", 24.1m, 42101.10m));
         }
 
         public List<Car> FindCarsByMake(string make)
@@ -33,7 +33,7 @@ namespace KennethKyleDeLunaProject1.Model
                 throw new ArgumentException("Make cannot be null or empty.", nameof(make));
             }
 
-            List<Car>? foundCars = cars.Where(car => car.Make.ToLower() == make.ToLower()).ToList();
+            List<Car>? foundCars = Inventory.Where(car => car.Make.ToLower() == make.ToLower()).ToList();
 
             return foundCars;
         }
@@ -50,7 +50,7 @@ namespace KennethKyleDeLunaProject1.Model
                 throw new ArgumentException("Model cannot be null or empty.", nameof(model));
             }
 
-            List<Car>? foundCars = cars.Where(car => car.Make.ToLower() == make.ToLower() && car.Model.ToLower() == model.ToLower()).ToList();
+            List<Car>? foundCars = Inventory.Where(car => car.Make.ToLower() == make.ToLower() && car.Model.ToLower() == model.ToLower()).ToList();
 
             return foundCars;
         }
@@ -66,11 +66,11 @@ namespace KennethKyleDeLunaProject1.Model
                 throw new ArgumentException("Model cannot be null or empty.", nameof(model));
             }
 
-            Car? carToPurchase = cars.FirstOrDefault(car => car.Make.ToLower() == make.ToLower() && car.Model.ToLower() == model.ToLower());
+            Car? carToPurchase = Inventory.FirstOrDefault(car => car.Make.ToLower() == make.ToLower() && car.Model.ToLower() == model.ToLower());
 
             if (carToPurchase != null)
             {
-                cars.Remove(carToPurchase);
+                Inventory.Remove(carToPurchase);
                 return carToPurchase;
             }
             return null; 
@@ -96,7 +96,7 @@ namespace KennethKyleDeLunaProject1.Model
                 throw new ArgumentException("Price must be a positive value.", nameof(price));
             }
             Car newCar = new Car(make, model, mpg, price);
-            cars.Add(newCar);
+            Inventory.Add(newCar);
         }
 
         public decimal GetTotalCostOfPurchase(Car car)
@@ -112,43 +112,43 @@ namespace KennethKyleDeLunaProject1.Model
 
         public Car? FindLeastExpensiveCar()
         {
-            if (cars == null || cars.Count == 0)
+            if (Inventory == null || Inventory.Count == 0)
             {
                 return null;
             }
 
-            Car leastExpensiveCar = cars.Aggregate((car1, car2) => car1.Price < car2.Price ? car1 : car2);
+            Car leastExpensiveCar = Inventory.Aggregate((car1, car2) => car1.Price < car2.Price ? car1 : car2);
             return leastExpensiveCar;
         }
 
         public Car? FindMostExpensiveCar()
         {
-            if (cars == null || cars.Count == 0)
+            if (Inventory == null || Inventory.Count == 0)
             {
                 return null;
             }
 
-            Car mostExpensiveCar = cars.Aggregate((car1, car2) => car1.Price > car2.Price ? car1 : car2);
+            Car mostExpensiveCar = Inventory.Aggregate((car1, car2) => car1.Price > car2.Price ? car1 : car2);
             return mostExpensiveCar;
         }
 
         public Car? FindBestMpgCar()
         {
-            if (cars == null || cars.Count == 0)
+            if (Inventory == null || Inventory.Count == 0)
             {
                 return null;
             }
-            Car bestMpgCar = cars.Aggregate((car1, car2) => car1.Mpg > car2.Mpg ? car1 : car2);
+            Car bestMpgCar = Inventory.Aggregate((car1, car2) => car1.Mpg > car2.Mpg ? car1 : car2);
             return bestMpgCar;
         }
 
         public Car? FindWorstMPG()
         {
-            if (cars == null || cars.Count == 0)
+            if (Inventory == null || Inventory.Count == 0)
             {
                 return null;
             }
-            Car worstMpgCar = cars.Aggregate((car1, car2) => car1.Mpg < car2.Mpg ? car1 : car2);
+            Car worstMpgCar = Inventory.Aggregate((car1, car2) => car1.Mpg < car2.Mpg ? car1 : car2);
             return worstMpgCar;
         }
     }

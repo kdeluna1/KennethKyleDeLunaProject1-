@@ -49,6 +49,7 @@
             inventoryListBox.Name = "inventoryListBox";
             inventoryListBox.Size = new Size(375, 259);
             inventoryListBox.TabIndex = 0;
+            inventoryListBox.Text = "Inventory";
             // 
             // label1
             // 
