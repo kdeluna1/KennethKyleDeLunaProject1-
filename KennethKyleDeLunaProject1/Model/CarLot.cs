@@ -4,14 +4,24 @@ using System.Text;
 
 namespace KennethKyleDeLunaProject1.Model
 {
+    /// <summary>
+    /// The Inventory class that lists the cars in te inventory
+    /// </summary>
     public class CarLot
     {
         private List<Car> Inventory;
+
+        /// <summary>
+        /// The basic tax rate for vehicles being sold
+        /// </summary>
         public decimal TaxRate = 0.078m;
 
         public int Count => Inventory.Count;
         public List<Car> LotInventory => new List<Car>(Inventory);
 
+        /// <summary>
+        /// initializes a new CarLot list of cars
+        /// </summary>
         public CarLot()
         {
             Inventory = new List<Car>();
@@ -26,6 +36,12 @@ namespace KennethKyleDeLunaProject1.Model
             Inventory.Add(new Car("Lexus", "ES 350", 24.1m, 42101.10m));
         }
 
+        /// <summary>
+        /// Finds cars of a given make
+        /// </summary>
+        /// <param name="make">The make to filter the cars by</param>
+        /// <returns>A list of cars of the same make</returns>
+        /// <exception cref="ArgumentException"></exception>
         public List<Car> FindCarsByMake(string make)
         {
             if (string.IsNullOrWhiteSpace(make))
@@ -38,6 +54,13 @@ namespace KennethKyleDeLunaProject1.Model
             return foundCars;
         }
 
+        /// <summary>
+        /// Finds cars of the same make and model
+        /// </summary>
+        /// <param name="make">The make to be matched</param>
+        /// <param name="model">The model to be matched</param>
+        /// <returns>A list of cars that matc the given make and model</returns>
+        /// <exception cref="ArgumentException"></exception>
         public List<Car> FindCarByMakeModel(string make, string model)
         {
             if (string.IsNullOrWhiteSpace(make))
@@ -55,6 +78,13 @@ namespace KennethKyleDeLunaProject1.Model
             return foundCars;
         }
 
+        /// <summary>
+        /// Purchases a car from the list based on the make and model
+        /// </summary>
+        /// <param name="make">The make of the car to be bought</param>
+        /// <param name="model">The model of the car to be bought</param>
+        /// <returns>Returns the car to be bought or null if funds are insufficient</returns>
+        /// <exception cref="ArgumentException"></exception>
         public Car? PurchaseCar(string make, string model)
         {
             if (string.IsNullOrWhiteSpace(make))
@@ -77,6 +107,14 @@ namespace KennethKyleDeLunaProject1.Model
             
         }
 
+        /// <summary>
+        /// Adds aa car to the inventory
+        /// </summary>
+        /// <param name="make">The make of the car to be addded</param>
+        /// <param name="model">The model of the car to be added</param>
+        /// <param name="mpg">The mpg of the car to be added</param>
+        /// <param name="price">The price of the car to be added</param>
+        /// <exception cref="ArgumentException"></exception>
         public void AddCar(string make, string model, decimal mpg, decimal price)
         {
             if (string.IsNullOrWhiteSpace(make))
@@ -99,6 +137,12 @@ namespace KennethKyleDeLunaProject1.Model
             Inventory.Add(newCar);
         }
 
+        /// <summary>
+        /// Gets the total cost of a purchase after taxes
+        /// </summary>
+        /// <param name="car">The car to be bought</param>
+        /// <returns>The total price of the car</returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public decimal GetTotalCostOfPurchase(Car car)
         {
             if (car == null)
@@ -110,6 +154,10 @@ namespace KennethKyleDeLunaProject1.Model
             return totalCost;
         }
 
+        /// <summary>
+        /// Finds the least expensive car
+        /// </summary>
+        /// <returns>The car with the lowest price</returns>
         public Car? FindLeastExpensiveCar()
         {
             if (Inventory == null || Inventory.Count == 0)
@@ -121,6 +169,10 @@ namespace KennethKyleDeLunaProject1.Model
             return leastExpensiveCar;
         }
 
+        /// <summary>
+        /// Finds the most expensive car
+        /// </summary>
+        /// <returns>The car with the highest price</returns>
         public Car? FindMostExpensiveCar()
         {
             if (Inventory == null || Inventory.Count == 0)
@@ -132,6 +184,10 @@ namespace KennethKyleDeLunaProject1.Model
             return mostExpensiveCar;
         }
 
+        /// <summary>
+        /// Finds the most fuel efficient car
+        /// </summary>
+        /// <returns>The car with the highest fuel efficiency</returns>
         public Car? FindBestMpgCar()
         {
             if (Inventory == null || Inventory.Count == 0)
@@ -142,6 +198,10 @@ namespace KennethKyleDeLunaProject1.Model
             return bestMpgCar;
         }
 
+        /// <summary>
+        /// Finds the least fuel efficient car
+        /// </summary>
+        /// <returns>The car with the lowest fuel efficiency</returns>
         public Car? FindWorstMPG()
         {
             if (Inventory == null || Inventory.Count == 0)

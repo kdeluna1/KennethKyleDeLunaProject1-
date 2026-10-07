@@ -9,6 +9,10 @@ namespace KennethKyleDeLunaProject1
     {
         private CarLot carLot;
         private Shopper? shopper;
+
+        /// <summary>
+        /// Initializes the main Car Lot Form
+        /// </summary>
         public CarLotForm()
         {
             InitializeComponent();

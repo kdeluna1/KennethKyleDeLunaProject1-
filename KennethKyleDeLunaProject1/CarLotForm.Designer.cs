@@ -252,7 +252,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "CarLotForm";
-            Text = "Car Sale Inventory";
+            Text = "Kenneth Kyle De Luna Project 1";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
