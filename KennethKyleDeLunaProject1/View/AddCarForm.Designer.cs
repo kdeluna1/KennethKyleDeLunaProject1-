@@ -28,36 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
+            addButton = new Button();
+            cancelButton = new Button();
             label5 = new Label();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            mpgTextBox = new TextBox();
+            priceTextBox = new TextBox();
+            modelTextBox = new TextBox();
+            makeTextBox = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             SuspendLayout();
             // 
-            // button1
+            // addButton
             // 
-            button1.Location = new Point(41, 242);
-            button1.Name = "button1";
-            button1.Size = new Size(92, 22);
-            button1.TabIndex = 22;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = true;
+            addButton.Location = new Point(41, 242);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(92, 22);
+            addButton.TabIndex = 22;
+            addButton.Text = "Add";
+            addButton.UseVisualStyleBackColor = true;
+            addButton.Click += addButton_Click;
             // 
-            // button2
+            // cancelButton
             // 
-            button2.Location = new Point(158, 242);
-            button2.Name = "button2";
-            button2.Size = new Size(92, 22);
-            button2.TabIndex = 21;
-            button2.Text = "Cancel";
-            button2.UseVisualStyleBackColor = true;
+            cancelButton.Location = new Point(158, 242);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(92, 22);
+            cancelButton.TabIndex = 21;
+            cancelButton.Text = "Cancel";
+            cancelButton.UseVisualStyleBackColor = true;
+            cancelButton.Click += cancelButton_Click;
             // 
             // label5
             // 
@@ -69,33 +71,33 @@
             label5.TabIndex = 20;
             label5.Text = "Add Car To Inventory";
             // 
-            // textBox4
+            // mpgTextBox
             // 
-            textBox4.Location = new Point(84, 192);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(179, 23);
-            textBox4.TabIndex = 19;
+            mpgTextBox.Location = new Point(84, 192);
+            mpgTextBox.Name = "mpgTextBox";
+            mpgTextBox.Size = new Size(179, 23);
+            mpgTextBox.TabIndex = 19;
             // 
-            // textBox3
+            // priceTextBox
             // 
-            textBox3.Location = new Point(84, 163);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(179, 23);
-            textBox3.TabIndex = 18;
+            priceTextBox.Location = new Point(84, 163);
+            priceTextBox.Name = "priceTextBox";
+            priceTextBox.Size = new Size(179, 23);
+            priceTextBox.TabIndex = 18;
             // 
-            // textBox2
+            // modelTextBox
             // 
-            textBox2.Location = new Point(84, 134);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(179, 23);
-            textBox2.TabIndex = 17;
+            modelTextBox.Location = new Point(84, 134);
+            modelTextBox.Name = "modelTextBox";
+            modelTextBox.Size = new Size(179, 23);
+            modelTextBox.TabIndex = 17;
             // 
-            // textBox1
+            // makeTextBox
             // 
-            textBox1.Location = new Point(84, 105);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(179, 23);
-            textBox1.TabIndex = 16;
+            makeTextBox.Location = new Point(84, 105);
+            makeTextBox.Name = "makeTextBox";
+            makeTextBox.Size = new Size(179, 23);
+            makeTextBox.TabIndex = 16;
             // 
             // label4
             // 
@@ -138,13 +140,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(286, 335);
-            Controls.Add(button1);
-            Controls.Add(button2);
+            Controls.Add(addButton);
+            Controls.Add(cancelButton);
             Controls.Add(label5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(mpgTextBox);
+            Controls.Add(priceTextBox);
+            Controls.Add(modelTextBox);
+            Controls.Add(makeTextBox);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -157,13 +159,13 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
+        private Button addButton;
+        private Button cancelButton;
         private Label label5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox mpgTextBox;
+        private TextBox priceTextBox;
+        private TextBox modelTextBox;
+        private TextBox makeTextBox;
         private Label label4;
         private Label label3;
         private Label label2;

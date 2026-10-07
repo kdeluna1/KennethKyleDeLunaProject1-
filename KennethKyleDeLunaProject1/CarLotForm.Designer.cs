@@ -40,6 +40,8 @@
             label4 = new Label();
             moneyTextBox = new TextBox();
             purchaseButton = new Button();
+            label5 = new Label();
+            textBox1 = new TextBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -82,8 +84,9 @@
             // 
             addCarToolStripMenuItem.Name = "addCarToolStripMenuItem";
             addCarToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.A;
-            addCarToolStripMenuItem.Size = new Size(155, 22);
+            addCarToolStripMenuItem.Size = new Size(180, 22);
             addCarToolStripMenuItem.Text = "Add Car";
+            addCarToolStripMenuItem.Click += addCarToolStripMenuItem_Click;
             // 
             // shopperButton
             // 
@@ -141,18 +144,39 @@
             // 
             // purchaseButton
             // 
-            purchaseButton.Location = new Point(110, 280);
+            purchaseButton.Location = new Point(427, 383);
             purchaseButton.Name = "purchaseButton";
-            purchaseButton.Size = new Size(92, 23);
+            purchaseButton.Size = new Size(152, 23);
             purchaseButton.TabIndex = 10;
             purchaseButton.Text = "Purchase Car";
             purchaseButton.UseVisualStyleBackColor = true;
+            purchaseButton.Click += purchaseButton_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(287, 336);
+            label5.Name = "label5";
+            label5.Size = new Size(80, 15);
+            label5.TabIndex = 11;
+            label5.Text = "Selected Car:";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(287, 354);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(426, 23);
+            textBox1.TabIndex = 12;
             // 
             // CarLotForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(textBox1);
+            Controls.Add(label5);
             Controls.Add(purchaseButton);
             Controls.Add(moneyTextBox);
             Controls.Add(label4);
@@ -186,5 +210,7 @@
         private Label label4;
         private TextBox moneyTextBox;
         private Button purchaseButton;
+        private Label label5;
+        private TextBox textBox1;
     }
 }

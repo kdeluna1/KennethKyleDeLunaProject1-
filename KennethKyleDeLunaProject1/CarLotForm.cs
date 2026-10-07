@@ -1,3 +1,4 @@
+using KennethKyleDeLunaProject1.Forms;
 using KennethKyleDeLunaProject1.Model;
 using KennethKyleDeLunaProject1.View;
 
@@ -32,8 +33,29 @@ namespace KennethKyleDeLunaProject1
                 {
                     shopper = shopperForm.Shopper;
 
-                    nameTextBox.Text = shopper.Name;
-                    moneyTextBox.Text = shopper.MoneyAvailable.ToString("C");
+                    nameTextBox.Text = shopper?.Name ?? string.Empty;
+                    moneyTextBox.Text = shopper?.MoneyAvailable.ToString("C") ?? string.Empty;
+                }
+            }
+        }
+
+        private void purchaseButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addCarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var addCarForm = new AddCarForm())
+            {
+                if (addCarForm.ShowDialog() == DialogResult.OK)
+                {
+                    Car? newCar = addCarForm.car;
+                    if (newCar != null)
+                    {
+                        carlot.AddCar(newCar.Make, newCar.Model, newCar.Price, newCar.Mpg);
+                        ShowInventory();
+                    }
                 }
             }
         }
