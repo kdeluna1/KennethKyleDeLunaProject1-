@@ -87,6 +87,7 @@
             button2.TabIndex = 10;
             button2.Text = "Cancel";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -96,6 +97,7 @@
             button1.TabIndex = 11;
             button1.Text = "Set";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // ShopperForm
             // 

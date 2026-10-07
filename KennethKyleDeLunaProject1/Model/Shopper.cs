@@ -4,7 +4,7 @@ using System.Text;
 
 namespace KennethKyleDeLunaProject1.Model
 {
-    internal class Shopper
+    public class Shopper
     {
         public string Name { get; set; }
         public decimal MoneyAvailable { get; set; }

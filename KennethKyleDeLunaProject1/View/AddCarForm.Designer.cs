@@ -150,8 +150,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "AddCarForm";
-            Text = "AddCarForm";
-            Load += this.AddCarForm_Load;
+            Text = "Add Car";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -1,4 +1,5 @@
 using KennethKyleDeLunaProject1.Model;
+using KennethKyleDeLunaProject1.View;
 
 namespace KennethKyleDeLunaProject1
 {
@@ -20,6 +21,20 @@ namespace KennethKyleDeLunaProject1
             foreach (Car car in carlot.LotInventory)
             {
                 inventoryListBox.Items.Add($"{car.Make} {car.Model} {car.Price:C} {car.Mpg}");
+            }
+        }
+
+        private void shopperButton_Click(object sender, EventArgs e)
+        {
+            using (var shopperForm = new ShopperForm())
+            {
+                if (shopperForm.ShowDialog() == DialogResult.OK)
+                {
+                    shopper = shopperForm.Shopper;
+
+                    nameTextBox.Text = shopper.Name;
+                    moneyTextBox.Text = shopper.MoneyAvailable.ToString("C");
+                }
             }
         }
     }

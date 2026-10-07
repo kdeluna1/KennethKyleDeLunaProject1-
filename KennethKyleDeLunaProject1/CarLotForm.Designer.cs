@@ -39,6 +39,7 @@
             label3 = new Label();
             label4 = new Label();
             moneyTextBox = new TextBox();
+            purchaseButton = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,9 +48,9 @@
             inventoryListBox.FormattingEnabled = true;
             inventoryListBox.Location = new Point(287, 64);
             inventoryListBox.Name = "inventoryListBox";
-            inventoryListBox.Size = new Size(375, 259);
+            inventoryListBox.RightToLeft = RightToLeft.No;
+            inventoryListBox.Size = new Size(426, 259);
             inventoryListBox.TabIndex = 0;
-            inventoryListBox.Text = "Inventory";
             // 
             // label1
             // 
@@ -92,6 +93,7 @@
             shopperButton.TabIndex = 3;
             shopperButton.Text = "Set Shopper";
             shopperButton.UseVisualStyleBackColor = true;
+            shopperButton.Click += shopperButton_Click;
             // 
             // label2
             // 
@@ -107,6 +109,7 @@
             // 
             nameTextBox.Location = new Point(84, 98);
             nameTextBox.Name = "nameTextBox";
+            nameTextBox.ReadOnly = true;
             nameTextBox.Size = new Size(178, 23);
             nameTextBox.TabIndex = 6;
             // 
@@ -132,14 +135,25 @@
             // 
             moneyTextBox.Location = new Point(84, 141);
             moneyTextBox.Name = "moneyTextBox";
+            moneyTextBox.ReadOnly = true;
             moneyTextBox.Size = new Size(178, 23);
             moneyTextBox.TabIndex = 9;
+            // 
+            // purchaseButton
+            // 
+            purchaseButton.Location = new Point(110, 280);
+            purchaseButton.Name = "purchaseButton";
+            purchaseButton.Size = new Size(92, 23);
+            purchaseButton.TabIndex = 10;
+            purchaseButton.Text = "Purchase Car";
+            purchaseButton.UseVisualStyleBackColor = true;
             // 
             // CarLotForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(purchaseButton);
             Controls.Add(moneyTextBox);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -171,5 +185,6 @@
         private Label label3;
         private Label label4;
         private TextBox moneyTextBox;
+        private Button purchaseButton;
     }
 }

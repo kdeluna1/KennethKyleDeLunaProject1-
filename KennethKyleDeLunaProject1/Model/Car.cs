@@ -4,7 +4,7 @@ using System.Text;
 
 namespace KennethKyleDeLunaProject1.Model
 {
-    internal class Car
+    public class Car
     {
         public string Make { get; set; }
         public string Model { get; set; }

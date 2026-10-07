@@ -4,7 +4,7 @@ using System.Text;
 
 namespace KennethKyleDeLunaProject1.Model
 {
-    internal class CarLot
+    public class CarLot
     {
         private List<Car> Inventory;
         public const decimal TaxRate = 0.078m;
