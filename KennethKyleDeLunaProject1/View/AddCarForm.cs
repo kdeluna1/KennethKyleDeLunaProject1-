@@ -11,7 +11,14 @@ namespace KennethKyleDeLunaProject1.Forms
 {
     public partial class AddCarForm : Form
     {
+        /// <summary>
+        /// The car to be added
+        /// </summary>
         public Car? car { get; private set; }
+
+        /// <summary>
+        /// Initializes the form to add a car
+        /// </summary>
         public AddCarForm()
         {
             InitializeComponent();

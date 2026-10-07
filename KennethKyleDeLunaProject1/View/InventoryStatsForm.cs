@@ -14,6 +14,10 @@ namespace KennethKyleDeLunaProject1.View
     public partial class InventoryStatsForm : Form
     {
         private CarLot carLot;
+
+        /// <summary>
+        /// Initializes the inventory statistics form
+        /// </summary>
         public InventoryStatsForm()
         {
             InitializeComponent();

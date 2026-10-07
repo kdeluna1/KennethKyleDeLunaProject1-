@@ -6,10 +6,23 @@ namespace KennethKyleDeLunaProject1.Model
 {
     public class Shopper
     {
+        /// <summary>
+        /// The name of the shopper.
+        /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// The funds that the shopper can spend.
+        /// </summary>
         public decimal MoneyAvailable { get; set; }
         private List<Car> Cars;
 
+        /// <summary>
+        /// Creates a shopper instance.
+        /// </summary>
+        /// <param name="name">The name of the shopper</param>
+        /// <param name="moneyAvailable">The money the shopper is able to spend</param>
+        /// <exception cref="ArgumentException"></exception>
         public Shopper(string name, decimal moneyAvailable)
         {
             if (string.IsNullOrWhiteSpace(name))
@@ -25,11 +38,24 @@ namespace KennethKyleDeLunaProject1.Model
             Cars = new List<Car>();
         }
 
+        /// <summary>
+        /// Determines whther a shopper is able to purchase a car or not.
+        /// </summary>
+        /// <param name="totalcost"></param>
+        /// <returns>True if the shopper is able to purchase a specific car and false if not.</returns>
         public bool CanPurchase(decimal totalcost)
         {
             return MoneyAvailable >= totalcost;
         }
 
+        /// <summary>
+        /// Purchases a car from the inventory.
+        /// </summary>
+        /// <param name="car">The car to be bought</param>
+        /// <param name="totalCost"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
         public void PurchaseCar(Car car, decimal totalCost)
         {
             if (car == null)
@@ -49,6 +75,10 @@ namespace KennethKyleDeLunaProject1.Model
             Cars.Add(car);
         }
 
+        /// <summary>
+        /// Returns the list of cars that have been purchased.
+        /// </summary>
+        /// <returns></returns>
         public List<Car> PurchasedCars()
         {
             return Cars;

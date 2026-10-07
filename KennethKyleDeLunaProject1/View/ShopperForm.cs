@@ -11,7 +11,14 @@ namespace KennethKyleDeLunaProject1.View
 {
     public partial class ShopperForm : Form
     {
+        /// <summary>
+        /// Stores the shopper identity and funds
+        /// </summary>
         public Shopper? Shopper { get; private set; }
+
+        /// <summary>
+        /// Initializes a shopper form
+        /// </summary>
         public ShopperForm()
         {
             InitializeComponent();
