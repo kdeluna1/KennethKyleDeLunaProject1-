@@ -41,7 +41,7 @@
             moneyTextBox = new TextBox();
             purchaseButton = new Button();
             label5 = new Label();
-            textBox1 = new TextBox();
+            selectedCarTextBox = new TextBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,6 +53,7 @@
             inventoryListBox.RightToLeft = RightToLeft.No;
             inventoryListBox.Size = new Size(426, 259);
             inventoryListBox.TabIndex = 0;
+            inventoryListBox.SelectedIndexChanged += inventoryListBox_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -84,7 +85,7 @@
             // 
             addCarToolStripMenuItem.Name = "addCarToolStripMenuItem";
             addCarToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.A;
-            addCarToolStripMenuItem.Size = new Size(180, 22);
+            addCarToolStripMenuItem.Size = new Size(155, 22);
             addCarToolStripMenuItem.Text = "Add Car";
             addCarToolStripMenuItem.Click += addCarToolStripMenuItem_Click;
             // 
@@ -162,20 +163,20 @@
             label5.TabIndex = 11;
             label5.Text = "Selected Car:";
             // 
-            // textBox1
+            // selectedCarTextBox
             // 
-            textBox1.Location = new Point(287, 354);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(426, 23);
-            textBox1.TabIndex = 12;
+            selectedCarTextBox.Location = new Point(287, 354);
+            selectedCarTextBox.Name = "selectedCarTextBox";
+            selectedCarTextBox.ReadOnly = true;
+            selectedCarTextBox.Size = new Size(426, 23);
+            selectedCarTextBox.TabIndex = 12;
             // 
             // CarLotForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(textBox1);
+            Controls.Add(selectedCarTextBox);
             Controls.Add(label5);
             Controls.Add(purchaseButton);
             Controls.Add(moneyTextBox);
@@ -211,6 +212,6 @@
         private TextBox moneyTextBox;
         private Button purchaseButton;
         private Label label5;
-        private TextBox textBox1;
+        private TextBox selectedCarTextBox;
     }
 }
