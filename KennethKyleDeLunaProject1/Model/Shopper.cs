@@ -48,5 +48,10 @@ namespace KennethKyleDeLunaProject1.Model
             MoneyAvailable -= totalCost;
             Cars.Add(car);
         }
+
+        public List<Car> PurchasedCars()
+        {
+            return Cars;
+        }
     }
 }

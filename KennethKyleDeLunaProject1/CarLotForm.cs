@@ -60,9 +60,14 @@ namespace KennethKyleDeLunaProject1
                 if (shopper.CanPurchase(selectedCar.Price))
                 {
                     carLot.PurchaseCar(selectedCar.Make, selectedCar.Model);
-                    shopper.MoneyAvailable -= selectedCar.Price;
+                    shopper.PurchaseCar(selectedCar, carLot.GetTotalCostOfPurchase(selectedCar));
                     moneyTextBox.Text = $"{shopper.MoneyAvailable:C}";
                     ShowInventory();
+                    purchasesListBox.Items.Clear();
+                    foreach (Car car in shopper.PurchasedCars())
+                    {
+                        purchasesListBox.Items.Add($"{car.Make} {car.Model} {car.Price:C} {car.Mpg}");
+                    }
                     selectedCarTextBox.Text = string.Empty;
                     MessageBox.Show($"Congratulations! You are now the owner of the {selectedCar.Make} {selectedCar.Model}");
                 }

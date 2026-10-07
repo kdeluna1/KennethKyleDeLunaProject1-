@@ -7,7 +7,7 @@ namespace KennethKyleDeLunaProject1.Model
     public class CarLot
     {
         private List<Car> Inventory;
-        public const decimal TaxRate = 0.078m;
+        public decimal TaxRate = 0.078m;
 
         public int Count => Inventory.Count;
         public List<Car> LotInventory => new List<Car>(Inventory);

@@ -46,6 +46,8 @@
             purchaseButton = new Button();
             label5 = new Label();
             selectedCarTextBox = new TextBox();
+            label6 = new Label();
+            purchasesListBox = new ListBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,7 +57,7 @@
             inventoryListBox.Location = new Point(287, 64);
             inventoryListBox.Name = "inventoryListBox";
             inventoryListBox.RightToLeft = RightToLeft.No;
-            inventoryListBox.Size = new Size(426, 259);
+            inventoryListBox.Size = new Size(218, 259);
             inventoryListBox.TabIndex = 4;
             inventoryListBox.SelectedIndexChanged += inventoryListBox_SelectedIndexChanged;
             // 
@@ -183,7 +185,7 @@
             // 
             // purchaseButton
             // 
-            purchaseButton.Location = new Point(427, 383);
+            purchaseButton.Location = new Point(455, 383);
             purchaseButton.Name = "purchaseButton";
             purchaseButton.Size = new Size(152, 23);
             purchaseButton.TabIndex = 6;
@@ -207,14 +209,35 @@
             selectedCarTextBox.Location = new Point(287, 354);
             selectedCarTextBox.Name = "selectedCarTextBox";
             selectedCarTextBox.ReadOnly = true;
-            selectedCarTextBox.Size = new Size(426, 23);
+            selectedCarTextBox.Size = new Size(476, 23);
             selectedCarTextBox.TabIndex = 5;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(545, 46);
+            label6.Name = "label6";
+            label6.Size = new Size(90, 15);
+            label6.TabIndex = 13;
+            label6.Text = "Purchased Cars";
+            // 
+            // purchasesListBox
+            // 
+            purchasesListBox.FormattingEnabled = true;
+            purchasesListBox.Location = new Point(545, 64);
+            purchasesListBox.Name = "purchasesListBox";
+            purchasesListBox.RightToLeft = RightToLeft.No;
+            purchasesListBox.Size = new Size(218, 259);
+            purchasesListBox.TabIndex = 14;
             // 
             // CarLotForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(purchasesListBox);
+            Controls.Add(label6);
             Controls.Add(selectedCarTextBox);
             Controls.Add(label5);
             Controls.Add(purchaseButton);
@@ -256,5 +279,7 @@
         private ToolStripMenuItem filterToolStripMenuItem;
         private ToolStripMenuItem filterByMakeToolStripMenuItem;
         private ToolStripMenuItem showAllCarsToolStripMenuItem;
+        private Label label6;
+        private ListBox purchasesListBox;
     }
 }
