@@ -1,6 +1,7 @@
 using KennethKyleDeLunaProject1.Forms;
 using KennethKyleDeLunaProject1.Model;
 using KennethKyleDeLunaProject1.View;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace KennethKyleDeLunaProject1
 {
@@ -105,6 +106,37 @@ namespace KennethKyleDeLunaProject1
         {
             var inventoryStatsForm = new InventoryStatsForm();
             inventoryStatsForm.Show();
+        }
+
+        private void filterByMakeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string make = Microsoft.VisualBasic.Interaction.InputBox("Enter the make of the car:", "Filter By Make");
+
+            if (string.IsNullOrWhiteSpace(make))
+            {
+                return;
+            }
+
+            List<Car> cars = carLot.FindCarsByMake(make);
+
+            if (cars == null || cars.Count() == 0)
+            {
+                MessageBox.Show($"No cars were found of the make {make}.", "No Cars Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            inventoryListBox.Items.Clear();
+            foreach (Car car in cars)
+            {
+                inventoryListBox.Items.Add($"{car.Make} {car.Model} {car.Price:C} {car.Mpg}");
+            }
+
+        }
+
+        private void showAllCarsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            inventoryListBox.Items.Clear();
+            ShowInventory();
         }
     }
 }

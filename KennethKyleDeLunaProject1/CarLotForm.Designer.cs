@@ -34,6 +34,9 @@
             iToolStripMenuItem = new ToolStripMenuItem();
             inventoryStatsToolStripMenuItem = new ToolStripMenuItem();
             addCarToolStripMenuItem = new ToolStripMenuItem();
+            filterToolStripMenuItem = new ToolStripMenuItem();
+            filterByMakeToolStripMenuItem = new ToolStripMenuItem();
+            showAllCarsToolStripMenuItem = new ToolStripMenuItem();
             shopperButton = new Button();
             label2 = new Label();
             nameTextBox = new TextBox();
@@ -53,7 +56,7 @@
             inventoryListBox.Name = "inventoryListBox";
             inventoryListBox.RightToLeft = RightToLeft.No;
             inventoryListBox.Size = new Size(426, 259);
-            inventoryListBox.TabIndex = 0;
+            inventoryListBox.TabIndex = 4;
             inventoryListBox.SelectedIndexChanged += inventoryListBox_SelectedIndexChanged;
             // 
             // label1
@@ -68,7 +71,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { iToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { iToolStripMenuItem, filterToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -98,9 +101,32 @@
             addCarToolStripMenuItem.Text = "Add Car";
             addCarToolStripMenuItem.Click += addCarToolStripMenuItem_Click;
             // 
+            // filterToolStripMenuItem
+            // 
+            filterToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { filterByMakeToolStripMenuItem, showAllCarsToolStripMenuItem });
+            filterToolStripMenuItem.Name = "filterToolStripMenuItem";
+            filterToolStripMenuItem.Size = new Size(45, 20);
+            filterToolStripMenuItem.Text = "Filter";
+            // 
+            // filterByMakeToolStripMenuItem
+            // 
+            filterByMakeToolStripMenuItem.Name = "filterByMakeToolStripMenuItem";
+            filterByMakeToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.M;
+            filterByMakeToolStripMenuItem.Size = new Size(211, 22);
+            filterByMakeToolStripMenuItem.Text = "Filter By Make";
+            filterByMakeToolStripMenuItem.Click += filterByMakeToolStripMenuItem_Click;
+            // 
+            // showAllCarsToolStripMenuItem
+            // 
+            showAllCarsToolStripMenuItem.Name = "showAllCarsToolStripMenuItem";
+            showAllCarsToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Alt | Keys.A;
+            showAllCarsToolStripMenuItem.Size = new Size(211, 22);
+            showAllCarsToolStripMenuItem.Text = "Show All Cars";
+            showAllCarsToolStripMenuItem.Click += showAllCarsToolStripMenuItem_Click;
+            // 
             // shopperButton
             // 
-            shopperButton.Location = new Point(110, 192);
+            shopperButton.Location = new Point(108, 219);
             shopperButton.Name = "shopperButton";
             shopperButton.Size = new Size(92, 23);
             shopperButton.TabIndex = 3;
@@ -120,16 +146,18 @@
             // 
             // nameTextBox
             // 
-            nameTextBox.Location = new Point(84, 98);
+            nameTextBox.BackColor = SystemColors.Control;
+            nameTextBox.Cursor = Cursors.No;
+            nameTextBox.Location = new Point(82, 125);
             nameTextBox.Name = "nameTextBox";
             nameTextBox.ReadOnly = true;
             nameTextBox.Size = new Size(178, 23);
-            nameTextBox.TabIndex = 6;
+            nameTextBox.TabIndex = 1;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(24, 98);
+            label3.Location = new Point(22, 125);
             label3.Name = "label3";
             label3.Size = new Size(42, 15);
             label3.TabIndex = 7;
@@ -138,7 +166,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(24, 144);
+            label4.Location = new Point(22, 171);
             label4.Name = "label4";
             label4.Size = new Size(47, 15);
             label4.TabIndex = 8;
@@ -146,18 +174,19 @@
             // 
             // moneyTextBox
             // 
-            moneyTextBox.Location = new Point(84, 141);
+            moneyTextBox.Cursor = Cursors.No;
+            moneyTextBox.Location = new Point(82, 168);
             moneyTextBox.Name = "moneyTextBox";
             moneyTextBox.ReadOnly = true;
             moneyTextBox.Size = new Size(178, 23);
-            moneyTextBox.TabIndex = 9;
+            moneyTextBox.TabIndex = 2;
             // 
             // purchaseButton
             // 
             purchaseButton.Location = new Point(427, 383);
             purchaseButton.Name = "purchaseButton";
             purchaseButton.Size = new Size(152, 23);
-            purchaseButton.TabIndex = 10;
+            purchaseButton.TabIndex = 6;
             purchaseButton.Text = "Purchase Car";
             purchaseButton.UseVisualStyleBackColor = true;
             purchaseButton.Click += purchaseButton_Click;
@@ -174,11 +203,12 @@
             // 
             // selectedCarTextBox
             // 
+            selectedCarTextBox.Cursor = Cursors.No;
             selectedCarTextBox.Location = new Point(287, 354);
             selectedCarTextBox.Name = "selectedCarTextBox";
             selectedCarTextBox.ReadOnly = true;
             selectedCarTextBox.Size = new Size(426, 23);
-            selectedCarTextBox.TabIndex = 12;
+            selectedCarTextBox.TabIndex = 5;
             // 
             // CarLotForm
             // 
@@ -223,5 +253,8 @@
         private Label label5;
         private TextBox selectedCarTextBox;
         private ToolStripMenuItem inventoryStatsToolStripMenuItem;
+        private ToolStripMenuItem filterToolStripMenuItem;
+        private ToolStripMenuItem filterByMakeToolStripMenuItem;
+        private ToolStripMenuItem showAllCarsToolStripMenuItem;
     }
 }
