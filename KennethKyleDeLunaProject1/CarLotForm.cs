@@ -6,20 +6,20 @@ namespace KennethKyleDeLunaProject1
 {
     public partial class CarLotForm : Form
     {
-        private CarLot carlot;
+        private CarLot carLot;
         private Shopper? shopper;
         public CarLotForm()
         {
             InitializeComponent();
 
-            carlot = new CarLot();
+            carLot = new CarLot();
             ShowInventory();
         }
 
         private void ShowInventory()
         {
             inventoryListBox.Items.Clear();
-            foreach (Car car in carlot.LotInventory)
+            foreach (Car car in carLot.LotInventory)
             {
                 inventoryListBox.Items.Add($"{car.Make} {car.Model} {car.Price:C} {car.Mpg}");
             }
@@ -55,15 +55,16 @@ namespace KennethKyleDeLunaProject1
 
             if (inventoryListBox.SelectedIndex != -1)
             {
-                Car selectedCar = carlot.LotInventory[inventoryListBox.SelectedIndex];
-                if (shopper.CanPurchase(selectedCar.Price)){
-                    carlot.PurchaseCar(selectedCar.Make, selectedCar.Model);
+                Car selectedCar = carLot.LotInventory[inventoryListBox.SelectedIndex];
+                if (shopper.CanPurchase(selectedCar.Price))
+                {
+                    carLot.PurchaseCar(selectedCar.Make, selectedCar.Model);
                     shopper.MoneyAvailable -= selectedCar.Price;
                     moneyTextBox.Text = $"{shopper.MoneyAvailable:C}";
                     ShowInventory();
                     selectedCarTextBox.Text = string.Empty;
                     MessageBox.Show($"Congratulations! You are now the owner of the {selectedCar.Make} {selectedCar.Model}");
-                } 
+                }
                 else
                 {
                     MessageBox.Show($"Sorry, you do not have sufficient funds to purchase this {selectedCar.Make} {selectedCar.Model}");
@@ -81,21 +82,29 @@ namespace KennethKyleDeLunaProject1
                     Car? newCar = addCarForm.car;
                     if (newCar != null)
                     {
-                        carlot.AddCar(newCar.Make, newCar.Model, newCar.Price, newCar.Mpg);
+                        carLot.AddCar(newCar.Make, newCar.Model, newCar.Price, newCar.Mpg);
                         ShowInventory();
                     }
                 }
             }
         }
 
-        private void inventoryListBox_SelectedIndexChanged(object sender, EventArgs e) {
+        private void inventoryListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
             if (inventoryListBox.SelectedIndex == -1)
             {
                 selectedCarTextBox.Text = string.Empty;
-            } else
+            }
+            else
             {
                 selectedCarTextBox.Text = inventoryListBox?.SelectedItem?.ToString();
             }
+        }
+
+        private void inventoryStatsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var inventoryStatsForm = new InventoryStatsForm();
+            inventoryStatsForm.Show();
         }
     }
 }

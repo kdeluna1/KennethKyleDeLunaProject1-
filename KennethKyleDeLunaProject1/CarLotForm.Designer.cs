@@ -32,6 +32,7 @@
             label1 = new Label();
             menuStrip1 = new MenuStrip();
             iToolStripMenuItem = new ToolStripMenuItem();
+            inventoryStatsToolStripMenuItem = new ToolStripMenuItem();
             addCarToolStripMenuItem = new ToolStripMenuItem();
             shopperButton = new Button();
             label2 = new Label();
@@ -76,16 +77,24 @@
             // 
             // iToolStripMenuItem
             // 
-            iToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addCarToolStripMenuItem });
+            iToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { inventoryStatsToolStripMenuItem, addCarToolStripMenuItem });
             iToolStripMenuItem.Name = "iToolStripMenuItem";
             iToolStripMenuItem.Size = new Size(69, 20);
             iToolStripMenuItem.Text = "Inventory";
+            // 
+            // inventoryStatsToolStripMenuItem
+            // 
+            inventoryStatsToolStripMenuItem.Name = "inventoryStatsToolStripMenuItem";
+            inventoryStatsToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.S;
+            inventoryStatsToolStripMenuItem.Size = new Size(188, 22);
+            inventoryStatsToolStripMenuItem.Text = "Inventory Stats";
+            inventoryStatsToolStripMenuItem.Click += inventoryStatsToolStripMenuItem_Click;
             // 
             // addCarToolStripMenuItem
             // 
             addCarToolStripMenuItem.Name = "addCarToolStripMenuItem";
             addCarToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.A;
-            addCarToolStripMenuItem.Size = new Size(155, 22);
+            addCarToolStripMenuItem.Size = new Size(188, 22);
             addCarToolStripMenuItem.Text = "Add Car";
             addCarToolStripMenuItem.Click += addCarToolStripMenuItem_Click;
             // 
@@ -213,5 +222,6 @@
         private Button purchaseButton;
         private Label label5;
         private TextBox selectedCarTextBox;
+        private ToolStripMenuItem inventoryStatsToolStripMenuItem;
     }
 }
