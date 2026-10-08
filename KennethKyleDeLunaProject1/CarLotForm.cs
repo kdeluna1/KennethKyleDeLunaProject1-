@@ -8,6 +8,7 @@ namespace KennethKyleDeLunaProject1
     public partial class CarLotForm : Form
     {
         private CarLot carLot;
+        private List<Car> displayedCars;
         private Shopper? shopper;
 
         /// <summary>
@@ -18,11 +19,13 @@ namespace KennethKyleDeLunaProject1
             InitializeComponent();
 
             carLot = new CarLot();
+            displayedCars = new List<Car>();
             ShowInventory();
         }
 
         private void ShowInventory()
         {
+            displayedCars = carLot.LotInventory;
             inventoryListBox.Items.Clear();
             foreach (Car car in carLot.LotInventory)
             {
@@ -60,7 +63,7 @@ namespace KennethKyleDeLunaProject1
 
             if (inventoryListBox.SelectedIndex != -1)
             {
-                Car selectedCar = carLot.LotInventory[inventoryListBox.SelectedIndex];
+                Car selectedCar = displayedCars[inventoryListBox.SelectedIndex];
                 if (shopper.CanPurchase(selectedCar.Price))
                 {
                     carLot.PurchaseCar(selectedCar.Make, selectedCar.Model);
@@ -134,6 +137,7 @@ namespace KennethKyleDeLunaProject1
                 return;
             }
 
+            displayedCars = cars;
             inventoryListBox.Items.Clear();
             foreach (Car car in cars)
             {
